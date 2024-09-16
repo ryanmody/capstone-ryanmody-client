@@ -1,6 +1,7 @@
 import './App.scss';
-import { BrowserRouter} from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import HeaderComponent from './components/HeaderComponent/HeaderComponent.jsx'
+import HomePage from './pages/HomePage/HomePage.jsx';
 
 function App() {
 
@@ -9,10 +10,10 @@ function App() {
       <BrowserRouter>
         <HeaderComponent />
 
-        {/* <Routes>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
 
-
-        </Routes> */}
+        </Routes>
       
       
       </BrowserRouter>
