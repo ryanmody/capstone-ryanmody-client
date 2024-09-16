@@ -23,7 +23,10 @@
     background-color: $goalkeep-darkgrey;
 
     &__date {
-        height: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 3.4375rem;
         width: 14.28%;
         min-width: 14.28%;
         border-right: 1px dotted #000;
