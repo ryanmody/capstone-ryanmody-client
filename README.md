@@ -79,17 +79,23 @@ Sprint 1 Functionalities
 
 ## Roadmap
 
-- Create client
+Monday:
+- Create initial client
+- Build out the three pages static
+    - Include form validation for tasks and categories
+- Create initial server
 
-- Create server
+Tuesday:
+- Build out the logic for populating tasks in Homepage Task list using data present from database (GET requests)
+- Build logic for populating category bubbles in Homepage Calendar
 
-- Build out the three pages that are static
+Wednesday:
+- Add ability to POST new categories
+- Add ability to POST new tasks
+- Update drop down in form pages to show most up-to-date categories available
 
-- Build out the logic for POSTing categories and tasks on server and client side
-
-- Build out the logic for dynamically populating the HomePage Calendar task list to show tasks for that day
-
-- Build out the logic for 
+Thursday:
+- FInish up any remaining pending tasks from previous days
 
 
 ## Nice-to-haves (if time-permitting)
