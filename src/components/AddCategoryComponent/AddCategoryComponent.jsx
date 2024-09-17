@@ -6,17 +6,17 @@ const AddCategoryComponent = () => {
     <>
       <div className="addcategory">
         <form className="addcategory__form" action="">
-          <div className="addcategory__form__box">
+          <div className="addcategory__box">
             <label htmlFor="name" className="addcategory__labels">Name:</label>
             <input id="name" type="text"></input>
           </div>
 
-          <div className="addcategory__form__box">
+          <div className="addcategory__box">
             <label htmlFor="details">Details:</label>
             <textarea name="" id="details"></textarea>
           </div>
 
-          <div className="addcategory__form__box">
+          <div className="addcategory__box">
             <label htmlFor='dropdown' className="addcategory__labels">
             Color:
             </label>

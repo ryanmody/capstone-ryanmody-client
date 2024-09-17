@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import AddTaskComponent from "../../components/AddTaskComponent/AddTaskComponent";
 
 const AddTaskPage = () => {
   return (
-    <div>AddTaskPage</div>
-  )
-}
+    <>
+      <AddTaskComponent />
+    </>
+  );
+};
 
-export default AddTaskPage
+export default AddTaskPage;
