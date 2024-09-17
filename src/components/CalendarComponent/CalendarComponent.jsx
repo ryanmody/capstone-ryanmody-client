@@ -20,7 +20,7 @@ const CalendarHeaderComponent = () => {
         <div className='calendar'>
 
           {dates.map(date => (
-            <div className='calendar__date'>
+            <div key={date} className='calendar__date'>
               <div>{date}</div>
               <div></div>
             </div>
