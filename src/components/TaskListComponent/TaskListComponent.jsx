@@ -1,11 +1,11 @@
 import React from 'react'
 import './TaskListComponent.scss'
 
-const TaskListComponent = ({ categories }) => {
+const TaskListComponent = ({ categories, month }) => {
   return (
     <>
 
-        <h1 className='tasks-title'>Tasks for Jan 1st:</h1>
+        <h1 className='tasks-title'>tasks for {month} 1st:</h1>
 
         <div className='tasks-list'>
 
@@ -13,7 +13,6 @@ const TaskListComponent = ({ categories }) => {
 
             <div key={category.id} className={`tasks-list__category tasks-list__category--${category.color}`}>{category.name}</div>
           ))}
-            {/* <div className='tasks-list__category'>Networking, Career, and Events</div> */}
         </div>
     
     </>
