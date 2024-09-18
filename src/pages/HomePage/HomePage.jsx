@@ -9,6 +9,7 @@ const HomePage = () => {
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   const [categories, setCategories] = useState([])
+  const [tasks, setTasks] = useState([])
 
   async function getAllCategories() {
     const response = await axios.get(`${baseUrl}/categories`)
@@ -19,11 +20,20 @@ const HomePage = () => {
     getAllCategories()
   }, [])
 
-  console.log(categories)
+  async function getAllTasks() {
+    const response = await axios.get(`${baseUrl}/tasks`)
+    setTasks(response.data)
+  }
+
+  useEffect( () => {
+    getAllTasks()
+  }, [tasks])
+
+
   return (
     <>
         <SubheaderComponent/>
-        <CalendarComponent />
+        <CalendarComponent categories={categories} tasks={tasks} />
         <TaskListComponent categories={categories} />
     </>
   )
