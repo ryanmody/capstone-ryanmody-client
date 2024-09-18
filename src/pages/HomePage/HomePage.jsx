@@ -73,7 +73,6 @@ const HomePage = () => {
 
   async function getTasksByDay() {
     const response = await axios.get(`${baseUrl}/${month}/${date}/tasks`)
-    console.log(response.data)
     setTasksDay(response.data)
   }
 
