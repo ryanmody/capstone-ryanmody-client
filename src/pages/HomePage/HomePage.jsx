@@ -32,7 +32,7 @@ const HomePage = () => {
 
   return (
     <>
-        <SubheaderComponent/>
+        {/* <SubheaderComponent/> */}
         <CalendarComponent categories={categories} tasks={tasks} />
         <TaskListComponent categories={categories} />
     </>

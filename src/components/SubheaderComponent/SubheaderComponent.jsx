@@ -1,10 +1,10 @@
 import React from 'react'
 import "./SubheaderComponent.scss"
 
-const SubheaderComponent = () => {
+const SubheaderComponent = ({ month }) => {
   return (
     <>
-        <div className='month-year'>January 2023</div>
+        <div className='month-year'>{month} 2023</div>
 
     </>
   )
