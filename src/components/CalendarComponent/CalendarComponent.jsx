@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./CalendarComponent.scss";
 import SubheaderComponent from "../SubheaderComponent/SubheaderComponent";
+import { Link } from "react-router-dom";
 
-const CalendarHeaderComponent = ({ categories, tasks, dates, month }) => {
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+const CalendarHeaderComponent = ({ categories, tasksMonth, dates, month, date }) => {
 
   return (
     <>
@@ -19,12 +19,13 @@ const CalendarHeaderComponent = ({ categories, tasks, dates, month }) => {
       </div>
 
       <div className="calendar">
-        {dates.map((date, index) => (
-          <div key={index} className="calendar__date">
-            <div>{date || ""}</div>
+        {dates.map((singleDate, index) => (
+
+          <Link key={index} to={`/${month}/${singleDate}`} className="calendar__date">
+            <div>{singleDate || ""}</div>
             <div className="calendar__bubble-container">
-              {tasks.map((task) =>
-                Number(task.date) === Number(date) ? (
+              {tasksMonth.map((task) =>
+                Number(task.date) === Number(singleDate) ? (
                   <div
                     key={task.id}
                     className={`calendar__bubble calendar__bubble--${task.color}`}
@@ -32,7 +33,7 @@ const CalendarHeaderComponent = ({ categories, tasks, dates, month }) => {
                 ) : null
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>

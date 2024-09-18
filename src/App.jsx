@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<HomePage/>} />
           <Route path='/addcategory' element={<AddCategoryPage />} />
           <Route path='/addtask' element={<AddTaskPage />} />
-          <Route path='/:month' element={<HomePage />} />
+          <Route path='/:month/:date' element={<HomePage />} />
         </Routes>
         <FooterComponent />
       

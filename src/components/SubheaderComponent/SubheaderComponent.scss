@@ -11,4 +11,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
+
+    &__chevron{
+
+        &--yflip {
+            transform: rotateY(180deg);
+        }
+    }
 }

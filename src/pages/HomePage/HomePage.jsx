@@ -8,12 +8,16 @@ import { useParams } from 'react-router-dom'
 const HomePage = () => {
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
-  const [categories, setCategories] = useState([])
-  const [day, setDay] = useState(1)
-  const [tasks, setTasks] = useState([])
-  const [dates, setDates] = useState([]);
-  // Get the month from the URL
+  // Get the month and day from the URL
   const { month } = useParams();
+  const { date } = useParams()
+
+  const [categories, setCategories] = useState([])
+  //Tasks by day
+  const [tasksDay, setTasksDay] = useState([])
+  //Tasks by month
+  const [tasksMonth, setTasksMonth] = useState([])
+  const [dates, setDates] = useState([]);
 
     // Initalize an array of objects that'll be my "key" for determining how many boxes to "skip"
     const dateKey = [
@@ -62,24 +66,32 @@ const HomePage = () => {
     setCategories(response.data)
   }
 
-  async function getAllTasks() {
+  async function getTasksByMonth() {
     const response = await axios.get(`${baseUrl}/${month}/tasks`)
+    setTasksMonth(response.data)
+  }
+
+  async function getTasksByDay() {
+    const response = await axios.get(`${baseUrl}/${month}/${date}/tasks`)
     console.log(response.data)
-    setTasks(response.data)
+    setTasksDay(response.data)
   }
 
   useEffect(() => {
     getMonths();
     getAllCategories()
-    getAllTasks()
-  }, [month]); // Need this 'month' dependency to re-fetch data when 'month' changes
+    getTasksByMonth()
+  }, [month]); // Need this "month" dependency to re-fetch data when "month" changes
+
+  useEffect(() => {
+    getTasksByDay()
+  }, [date]) // Need this date dependency to re-fetch data when "date" (or day) changes
 
 
   return (
     <>
-        {/* <SubheaderComponent/> */}
-        <CalendarComponent month={month} dates={dates} categories={categories} tasks={tasks} />
-        <TaskListComponent month={month} categories={categories} />
+        <CalendarComponent month={month} dates={dates} date={date} categories={categories} tasksMonth={tasksMonth} />
+        <TaskListComponent month={month} date={date} tasksDay={tasksDay} />
     </>
   )
 }
