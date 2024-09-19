@@ -1,5 +1,6 @@
 import React from 'react'
 import './TaskListComponent.scss'
+import { Link } from 'react-router-dom'
 
 const TaskListComponent = ({ tasksDay, month, date}) => {
   return (
@@ -11,7 +12,8 @@ const TaskListComponent = ({ tasksDay, month, date}) => {
 
           {tasksDay.map(task => (
 
-            <div key={task.id} className={`tasks-list__category tasks-list__category--${task.color}`}>{task.name}</div>
+            <Link key={task.id} className={`tasks-list__category tasks-list__category--${task.color}`}>{task.name}</Link>
+
           ))}
         </div>
     

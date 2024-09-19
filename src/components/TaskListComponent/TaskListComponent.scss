@@ -28,6 +28,13 @@
     width: 95%;
     min-height: 1.625rem;
     background-color: $category-red;
+    text-decoration: none;
+    color: #000;
+    transition: 0.10s ease-out 10ms;
+
+    &:hover {
+      transform: translate(3px, -3px);
+    }
     
     &--red {
       background-color: $category-red;
