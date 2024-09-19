@@ -22,31 +22,6 @@
   flex-wrap: wrap;
   background-color: $goalkeep-darkgrey;
 
-  &__bubble {
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    display: flex;
-
-    &-container {
-      width: 95%;
-      display: flex;
-      justify-content: center;
-      gap: 0.05rem;
-    }
-    &--red {
-      background-color: $category-red;
-    }
-
-    &--green {
-      background-color: $category-green;
-    }
-
-    &--blue {
-      background-color: $category-blue;
-    }
-  }
-
   &__date {
     display: flex;
     flex-direction: column;
@@ -63,5 +38,31 @@
     background-color: $goalkeep-grey;
     text-decoration: none;
     color: black;
+  }
+
+  &__bubble {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: flex;
+
+    &-container {
+      width: 95%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.05rem;
+    }
+    &--red {
+      background-color: $category-red;
+    }
+
+    &--green {
+      background-color: $category-green;
+    }
+
+    &--blue {
+      background-color: $category-blue;
+    }
   }
 }
