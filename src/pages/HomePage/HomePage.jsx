@@ -11,8 +11,8 @@ const HomePage = () => {
   // Get the month and day from the URL
   const { month } = useParams();
   const { date } = useParams()
+  // const [categories, setCategories] = useState([])
 
-  const [categories, setCategories] = useState([])
   //Tasks by day
   const [tasksDay, setTasksDay] = useState([])
   //Tasks by month
@@ -61,10 +61,10 @@ const HomePage = () => {
       }
     }
 
-  async function getAllCategories() {
-    const response = await axios.get(`${baseUrl}/categories`)
-    setCategories(response.data)
-  }
+  // async function getAllCategories() {
+  //   const response = await axios.get(`${baseUrl}/categories`)
+  //   setCategories(response.data)
+  // }
 
   async function getTasksByMonth() {
     const response = await axios.get(`${baseUrl}/${month}/tasks`)
@@ -78,7 +78,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getMonths();
-    getAllCategories()
+    // getAllCategories()
     getTasksByMonth()
   }, [month]); // Need this "month" dependency to re-fetch data when "month" changes
 
@@ -89,8 +89,8 @@ const HomePage = () => {
 
   return (
     <>
-        <CalendarComponent month={month} dates={dates} date={date} categories={categories} tasksMonth={tasksMonth} />
-        <TaskListComponent month={month} date={date} tasksDay={tasksDay} />
+        <CalendarComponent month={month} dates={dates} date={date} tasksMonth={tasksMonth} />
+        <TaskListComponent month={month} date={date} tasksDay={tasksDay}/>
     </>
   )
 }
