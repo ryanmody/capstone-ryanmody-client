@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TaskListComponent.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,7 +16,6 @@ const TaskListComponent = ({ tasksDay, month, date }) => {
   }
 
   async function doneHandler(id) {
-
     console.log(id)
     try {
       await axios.delete(`${baseUrl}/${id}`)

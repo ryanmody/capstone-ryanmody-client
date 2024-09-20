@@ -6,3 +6,9 @@
     font-family: "Comfortaa";
     // font-weight: 400;
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+}
