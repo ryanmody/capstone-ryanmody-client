@@ -21,7 +21,11 @@ const CalendarHeaderComponent = ({ categories, tasksMonth, dates, month, date })
       <div className="calendar">
         {dates.map((singleDate, index) => (
 
-          <Link key={index} to={`/${month}/${singleDate}`} className="calendar__date">
+          <Link key={index} 
+          //Make sure that user can't click on empty calendar box with no date and get routed to a broken page 
+          to={singleDate ? `/${month}/${singleDate}` : null}
+          className="calendar__date"
+          >
             <div>{singleDate || ""}</div>
             <div className="calendar__bubble-container">
               {tasksMonth.map((task) =>
