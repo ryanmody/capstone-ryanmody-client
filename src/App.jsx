@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import FooterComponent from "./components/FooterComponent/FooterComponent.jsx";
 import AddCategoryPage from "./pages/AddCategoryPage/AddCategoryPage.jsx";
 import AddTaskPage from "./pages/AddTaskPage/AddTaskPage.jsx";
+import RoutePage from "./pages/RoutePage/RoutePage.jsx";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
 
         <main className="main">
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<RoutePage />} />
             <Route path="/addcategory" element={<AddCategoryPage />} />
             <Route path="/addtask" element={<AddTaskPage />} />
             <Route path="/:month/:date" element={<HomePage />} />
