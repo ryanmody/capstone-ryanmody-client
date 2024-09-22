@@ -1,104 +1,57 @@
-# Project Title
-GoalKeep - An agenda app
+# Personal Agenda App
 
-## Overview
+Goalkeep is a personal agenda mobile app that makes organizing tasks effortless and visually appealing. Users can create custom categories for their tasks to help prioritize their life goals, assign them to any day of the year, and benefit from color-coded organization for clarity. It provides a powerful way to stay on top of pending tasks and prioritize effectively, especially for the working professional.
 
-GoalKeep is an agenda planner app for the working professional that's just entered the job market! New workers just joining the job force after graduating college/university can struggle to balance their hobbies or passions with their newfound professional duties.
+The app is divided into a back-end server, a front-end client, and a database. Here's a step-by-step guide for setting it up on your device:
 
-### Problem
+### Problem Space
 
-Most agenda apps are hyper-specialized for students trying to balance their deadlines and tasks related to their studies and class times, which works great during post-secondary school but can lose its functionality for recent graduates! Todo apps don't allow for categorization of the different tasks that allow people to plan and balance across multiple dimensions of their lives.
+About 81% of recent grads express feeling unprepared for certain life skills, including time management, which could impact their ability to keep up with hobbies as they juggle new responsibilities​.
+
+Most agenda apps are catered towards students and helping organize their classes and midterms. Calendar apps are centered around planning commitments that have a fixed "time" associated. And other planner apps resemble more of to-do list, rather than a life-planner app! Goalkeep helps users plan all facets of their life, whether it's hobby activities, professional tasks, upcoming meetings, or anything else!
 
 ### User Profile
 
-- 24-29 year olds that have just graduated and are struggling to balance their new professional duties wtih the hobbies/passions/extra-curriculars that are important to their lives!
+Users are former students who are just joining the workforce and are struggling to maintain their hobbies and passions while balancing their professional duties. Intended user is anyone between the ages of 24-33 who benefit from being able to organize their lives holistically using tasks and categories.
 
-### Features
+## Setup Instructions
 
-- Being able to see all tasks (by date) on the homepage, and have a month's view of the different category of tasks that are planned for the month. 
-- Being able to add new categories, and assign a color
-- Being able to add a new task, and assign a category
+### Server Setup
+1. **Fill in `.env` file**  
+   - Duplicate the `env.sample` file and rename it to `.env`.
+   - You will need to CREATE a new DATABASE in your choice of DBMS. Name the database whatever you like.
+   - Fill in the necessary environment variables, including the database information. Ensure you set the `DB_LOCAL_NAME` variable to the name of your new database.
 
-## Implementation
-Sprint 1 Functionalities
-- Homepage Calendar + Task list (top half of page is a Calendar for the month, bottom-half is the task list for the particular day)
-    - Calendar area will show "color-coded bubbles" in each respective day if there is a task present for that day.
-    - Task list area will show which tasks are assigned for the day
-- Add a category page
-    - User can add a category and assign color
-- Add a task page
-    - User can add a task and assign it to one category that exists.
+2. **Install dependencies**  
+   Run `npm install` in Terminal or VSCode Terminal to install all required libraries.
 
-### Tech Stack
+3. **Run migrations**
+   Run `npx knex migrate:latest` to create the necessary tables (categories, tasks, months) in your new database.
 
-- Front-end:
-    - React (Javascript)
-- Back-end:
-    - Node
-    - Express
-    - Knex
-- Database System Manager
-    - MySQL
+4. **Seed the database**
+   Run `npx knex seed:run` to populate the database tables with sample data.
 
-### APIs
+   Now you can run `npm run dev` to start the server!
 
-- No external APIs will be used for the first sprint
+### Front-end Setup
+1. **Fill in `.env` file**  
+   - Duplicate the `env.sample` file and rename it to `.env`.
+   - Set the `VITE_APP_BASE_URL` variable to the domain that your server is running on (e.g. `http://localhost:8080`)
 
-### Sitemap
+2. **Install dependencies**  
+   Run `npm install` in Terminal or VSCode Terminal to install all required libraries.
 
-- Homepage Calendar + Task list
-- Add a category
-- Add a task
+   Now you can run `npm run dev` to start your client and open up the URL in a browser to access the app!
 
-### Mockups
+## Sprint 1 Functionalities/Testing:
 
-#### Home Page 
-![](./src/assets/mockups/Home%20Calendar%20Page.png)
+- *Home Route (/)*: Automatically redirects to the current date.
+- *Month View*: Displays all tasks for the current month. You can navigate through all months of 2024, with seeded data for September to December. Clicking a date in the calendar displays the tasks for that day. Clicking a blank date does nothing.
+- *Daily Tasks*: The bottom half of the home page shows tasks due on the current day. Click on a task to view its details, including a "Done" button to remove it.
+- *Category Management*: You can create new categories, assign one of three available colors, and add a name and details about the category.
+- *Task Creation*: New tasks can be added to existing or new categories. Created tasks will be added to the calendar and viewed just like any seeded task.
 
-#### Add a category page
-![](./src/assets/mockups/Add%20a%20category%20page%20(Form).png)
-
-#### Add a task page
-![](./src/assets/mockups/Add%20a%20task%20page%20(Form).png)
-
-
-### Data
-
-![](./src/assets/mockups/SQL%20Database%20Structure.png)
-
-### Endpoints
-
-- Categories
-    - GET all categories that have a task
-    - POST a new category
-- Tasks
-    - GET all tasks by day
-    - POST a new task (with date and category)
-- Month
-    - GET all days for the month
-
-## Roadmap
-
-Monday:
-- Create initial client
-- Build out the three pages static
-    - Include form validation for tasks and categories
-- Create initial server
-
-Tuesday:
-- Build out the logic for populating tasks in Homepage Task list using data present from database (GET requests)
-- Build logic for populating category bubbles in Homepage Calendar
-
-Wednesday:
-- Add ability to POST new categories
-- Add ability to POST new tasks
-- Update drop down in form pages to show most up-to-date categories available
-
-Thursday:
-- FInish up any remaining pending tasks from previous days
-
-
-## Nice-to-haves (if time-permitting)
-
-- Edit and Delete categories and tasks
-- Clicking on a day in the calendar takes you to a page dedicated to that day that shows all the tasks by category
+## Sprint 1 Limitations:
+- Although the app will work as intended for tablet and desktop, it is not yet optimized visually for those viewports.
+- "Details" of a category is not being used in this iteration of the app currently, but will be used in a future sprint to edit and view all categories.
+- Hitting "done" on a task will remove it from the database, and therefore the app. In future sprints, a separate page will be created to show all completed tasks to users.

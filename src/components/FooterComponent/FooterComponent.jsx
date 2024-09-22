@@ -9,7 +9,7 @@ const FooterComponent = () => {
   return (
     <>
       <div className="footer">
-        <Link className="footer__link" to={'/october/16'}>
+        <Link className="footer__link" to={'/'}>
           <div className="footer__box">
             <img src={calendar} />
           </div>

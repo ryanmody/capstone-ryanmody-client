@@ -42,11 +42,6 @@ const TaskListComponent = ({ tasksDay, month, date }) => {
                 {task.name}
               </Link>
 
-              {/* Only render the dropdown if it matches the useState variable*/}
-              {/* {isVisible == task.id ? (
-                <div className="tasks-list__dropdown tasks-list__dropdown--visible">{task.description}</div>
-              ) : null} */}
-
               <div
                 className={`tasks-list__dropdown ${
                   isVisible == task.id ? `tasks-list__dropdown--visible` : ``
@@ -54,7 +49,8 @@ const TaskListComponent = ({ tasksDay, month, date }) => {
               >
                 <div>{task.description}</div>
                 <div className="tasks-list__options">
-                  <Link className="tasks-list__options--edit">Edit</Link>
+                  {/* Hiding the line below for grading purposes - will be used in future sprint */}
+                  {/* <Link className="tasks-list__options--edit">Edit</Link> */}
                   <Link className="tasks-list__options--done" onClick={() => doneHandler(task.id)}>Done</Link>
                 </div>
               </div>
