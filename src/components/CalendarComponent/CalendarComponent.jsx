@@ -14,7 +14,7 @@ const CalendarHeaderComponent = ({ categories, tasksMonth, dates, month, date })
         <p className="daysofweek__day">Tue</p>
         <p className="daysofweek__day">Wed</p>
         <p className="daysofweek__day">Thu</p>
-        <p className="daysofweek__day">Frid</p>
+        <p className="daysofweek__day">Fri</p>
         <p className="daysofweek__day">Sat</p>
       </div>
 

@@ -84,7 +84,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getTasksByDay()
-  }, [date]) // Need this date dependency to re-fetch data when "date" (or day) changes
+  }, [date, month]) // Need this date dependency to re-fetch data when "date" or month changes
 
 
   return (
