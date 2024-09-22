@@ -61,11 +61,6 @@ const HomePage = () => {
       }
     }
 
-  // async function getAllCategories() {
-  //   const response = await axios.get(`${baseUrl}/categories`)
-  //   setCategories(response.data)
-  // }
-
   async function getTasksByMonth() {
     const response = await axios.get(`${baseUrl}/${month}/tasks`)
     setTasksMonth(response.data)

@@ -3,7 +3,7 @@ import "./CalendarComponent.scss";
 import SubheaderComponent from "../SubheaderComponent/SubheaderComponent";
 import { Link } from "react-router-dom";
 
-const CalendarHeaderComponent = ({ categories, tasksMonth, dates, month, date }) => {
+const CalendarHeaderComponent = ({ tasksMonth, dates, month }) => {
 
   return (
     <>

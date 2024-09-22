@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./AddCategoryComponent.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddCategoryComponent = () => {
+
+  const [categories, setCategories] = useState([])
+  
+  async function getAllCategories() {
+    const response = await axios.get(`${baseUrl}/categories`)
+    console.log(response.data)
+    setCategories(response.data)
+  }
+
+  useEffect(() => {
+    getAllCategories()
+  }, [])
 
   const navigate = useNavigate()
 
@@ -68,19 +80,15 @@ const AddCategoryComponent = () => {
               Color:
             </label>
             <select id="dropdown" name="colors">
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="green">Green</option>
-              <option value="purple">Purple</option>
-              <option value="orange">Orange</option>
+              {categories.map(category => (
+                <option key={category.id} value={category.color}>{category.color}</option>
+              ))}
             </select>
           </div>
 
-          {/* <Link onClick={() => submitHandler()}> */}
           <button className="addcategory__button" type="submit">
             Create
           </button>
-          {/* </Link> */}
         </form>
       </div>
     </>
