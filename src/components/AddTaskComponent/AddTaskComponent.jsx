@@ -61,7 +61,7 @@ const AddTaskComponent = () => {
 
     postNewTask();
     alert(`${newTaskObject.name} added successfully!`);
-    navigate("/october/16");
+    navigate("/");
   }
 
   return (

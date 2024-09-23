@@ -56,7 +56,7 @@ const AddCategoryComponent = () => {
 
     postNewCategory(newCategory)
     alert(`${newCategory.name} successfully added!`)
-    navigate('/october/16')
+    navigate('/')
   }
 
   return (
