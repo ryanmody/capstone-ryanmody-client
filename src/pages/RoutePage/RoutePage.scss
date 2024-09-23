@@ -1,0 +1,26 @@
+.route-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;               // Start hidden
+    transition: opacity 3s ease-in-out;  // Transition over 3 seconds
+  
+    &.fade-in {
+      opacity: 1;             // Fade in to full visibility
+    }
+  }
+  
+  .app-name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 10px;
+  }
+  
