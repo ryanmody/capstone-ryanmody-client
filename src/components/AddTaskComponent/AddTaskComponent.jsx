@@ -12,7 +12,24 @@ const AddTaskComponent = () => {
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
 
+  const monthsArray = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
+
   const [categories, setCategories] = useState([]);
+  const [monthUrl, setMonthUrl] = useState() 
+  const [dateUrl, setDateUrl] = useState() 
 
   async function getAllCategories() {
     const response = await axios.get(`${baseUrl}/categories`);
@@ -22,6 +39,18 @@ const AddTaskComponent = () => {
   useEffect(() => {
     getAllCategories();
   }, []);
+
+  function getCurrentDate() {
+    const month = new Date().getMonth();
+    const dateNumber = new Date().getDate();
+
+    setMonthUrl(monthsArray[month]);
+    setDateUrl(dateNumber);
+  }
+
+  useEffect(() => {
+    getCurrentDate()
+  }, [])
 
   function submitHandler(event) {
     event.preventDefault();
@@ -61,7 +90,7 @@ const AddTaskComponent = () => {
 
     postNewTask();
     alert(`${newTaskObject.name} added successfully!`);
-    navigate("/october/16");
+    navigate(`/${monthUrl}/${dateUrl}`);
   }
 
   return (

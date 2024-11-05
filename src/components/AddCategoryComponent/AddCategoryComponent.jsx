@@ -5,7 +5,44 @@ import { useNavigate } from "react-router-dom";
 
 const AddCategoryComponent = () => {
 
+  const navigate = useNavigate()
+
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   const [categories, setCategories] = useState([])
+  const [monthUrl, setMonthUrl] = useState() 
+  const [dateUrl, setDateUrl] = useState() 
+
+  const dates = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ];
+
+  const monthsArray = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
+
+  function getCurrentDate() {
+    const month = new Date().getMonth();
+    const dateNumber = new Date().getDate();
+
+    setMonthUrl(monthsArray[month]);
+    setDateUrl(dateNumber);
+  }
+
+  useEffect(() => {
+    getCurrentDate()
+  }, [])
   
   async function getAllCategories() {
     const response = await axios.get(`${baseUrl}/categories`)
@@ -16,10 +53,6 @@ const AddCategoryComponent = () => {
   useEffect(() => {
     getAllCategories()
   }, [])
-
-  const navigate = useNavigate()
-
-  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   const postNewCategory = async (newCategory) => {
     try {
@@ -56,7 +89,7 @@ const AddCategoryComponent = () => {
 
     postNewCategory(newCategory)
     alert(`${newCategory.name} successfully added!`)
-    navigate('/october/16')
+    navigate(`/${monthUrl}/${dateUrl}`);
   }
 
   return (

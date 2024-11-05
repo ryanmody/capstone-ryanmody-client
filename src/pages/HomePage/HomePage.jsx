@@ -63,6 +63,8 @@ const HomePage = () => {
 
   async function getTasksByMonth() {
     const response = await axios.get(`${baseUrl}/${month}/tasks`)
+
+    console.log(tasksMonth)
     setTasksMonth(response.data)
   }
 
